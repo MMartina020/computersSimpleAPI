@@ -30,4 +30,8 @@ public class ComputerService {
     public Computer addComputer(Computer computer){
         return repository.save(computer);
     }
+
+    public void deleteComputer(int id) {
+       repository.deleteById(id);
+    }
 }

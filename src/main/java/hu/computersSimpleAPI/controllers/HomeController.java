@@ -36,4 +36,10 @@ public class HomeController {
     public Computer addComputer(@RequestBody Computer computer){
         return service.addComputer(computer);
     }
+
+    @DeleteMapping("/computers/{id}")
+    public void deleteComputer(@PathVariable("id") int id){
+        service.deleteComputer(id);
+    }
+
 }
