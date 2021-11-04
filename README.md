@@ -4,9 +4,9 @@
 
 **Metódusok**
 -GET
-    -http://localhost:8080/computers
-    -http://localhost:8080/computers/{id}
-    -http://localhost:8080/computers/{manufacture}
+    - http://localhost:8080/computers
+    - http://localhost:8080/computers/{id}
+    - http://localhost:8080/computers/{manufacture}
 
 Entity
 
