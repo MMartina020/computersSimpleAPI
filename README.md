@@ -39,7 +39,7 @@ Entity
 |:----|:----:|----:|:----:| 
 |100|IBM|2|Taiwan|
 
-Postman indítása: chorome://apps/
+Postman indítása: chrome://apps/
 
 
 *Minden jog fenntartva!*
