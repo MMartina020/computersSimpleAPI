@@ -41,5 +41,8 @@ public class HomeController {
     public void deleteComputer(@PathVariable("id") int id){
         service.deleteComputer(id);
     }
-
+    @PatchMapping("/computers/{id}/{ram}")
+    public  Computer updateComputer(@PathVariable("id") int id, @PathVariable("ram") int ram){
+        return service.updateComputer(id, ram);
+    }
 }

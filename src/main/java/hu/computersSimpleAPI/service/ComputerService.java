@@ -40,4 +40,14 @@ public class ComputerService {
             repository.deleteById(id);
         throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
+
+    public Computer updateComputer(int id, int ram) {
+        Optional<Computer> computer = repository.findById(id);
+        if (computer.isPresent()) {
+            Computer updateComputer = computer.get();
+            updateComputer.setRam(ram);
+            return repository.save(updateComputer);
+        }
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+    }
 }
