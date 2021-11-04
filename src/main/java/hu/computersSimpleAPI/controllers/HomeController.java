@@ -45,4 +45,8 @@ public class HomeController {
     public  Computer updateComputer(@PathVariable("id") int id, @PathVariable("ram") int ram){
         return service.updateComputer(id, ram);
     }
+    @PutMapping("/computers/{id}")
+    public Computer replaceComputer(@PathVariable("id") int id, @RequestBody Computer computer){
+        return service.replaceComputer(id, computer);
+    }
 }

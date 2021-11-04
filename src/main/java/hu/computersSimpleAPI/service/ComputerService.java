@@ -5,6 +5,7 @@ import hu.computersSimpleAPI.repository.ComputerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
@@ -16,12 +17,12 @@ public class ComputerService {
     @Autowired
     private ComputerRepository repository;
 
-    public List<Computer> getComputers() {
+    public List <Computer> getComputers() {
         return repository.findAll();
     }
 
     public Computer getComputerBySerial(int serial) {
-        Optional<Computer> computer = repository.findById(serial);
+        Optional <Computer> computer = repository.findById(serial);
         if(computer.isPresent())
         return computer.get();
         throw new ResponseStatusException(HttpStatus.NOT_FOUND);
@@ -35,18 +36,28 @@ public class ComputerService {
     }
 
     public void deleteComputer(int id) {
-        Optional<Computer> computer = repository.findById(id);
+        Optional <Computer> computer = repository.findById(id);
         if (computer.isPresent())
             repository.deleteById(id);
         throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
 
     public Computer updateComputer(int id, int ram) {
-        Optional<Computer> computer = repository.findById(id);
+        Optional <Computer> computer = repository.findById(id);
         if (computer.isPresent()) {
             Computer updateComputer = computer.get();
             updateComputer.setRam(ram);
             return repository.save(updateComputer);
+        }
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+    }
+
+    public Computer replaceComputer(int id, Computer computer) {
+        Optional <Computer> optionalComputer = repository.findById(id);
+        if (optionalComputer.isPresent()) {
+            Computer replaceComputer = optionalComputer.get();
+            computer.setSerial(optionalComputer.get().getSerial());
+            return repository.save(computer);
         }
         throw new ResponseStatusException(HttpStatus.NOT_FOUND);
     }
