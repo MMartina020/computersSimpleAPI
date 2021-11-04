@@ -27,4 +27,7 @@ public class ComputerService {
     public List<Computer> getComputersByManufacture(String manufacture) {
         return repository.findByManufacture(manufacture);
     }
+    public Computer addComputer(Computer computer){
+        return repository.save(computer);
+    }
 }
