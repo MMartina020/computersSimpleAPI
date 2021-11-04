@@ -14,6 +14,8 @@ Entity
 |:----|:----:|----:|:----:| 
 |100|IBM|2|Taiwan|
 
+Postman indítása: chorome://apps/
+
 *Minden jog fenntartva*
 
     
